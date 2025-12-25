@@ -24,6 +24,13 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
+    - name: Sync FacultyFinder colleges
+      env:
+        SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+        SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        FACULTYFINDER_URL: ${{ secrets.FACULTYFINDER_URL }}
+        FACULTYFINDER_KEY: ${{ secrets.FACULTYFINDER_KEY }}
+      run: npm run sync-ff
       - name: Run scraper
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
