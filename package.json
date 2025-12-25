@@ -1,0 +1,27 @@
+{
+  "name": "law-jobs-scraper",
+  "version": "1.0.0",
+  "private": false,
+  "license": "MIT",
+  "scripts": {
+    "scrape-all": "tsx src/scrape-all.ts",
+    "bootstrap": "tsx src/bootstrap.ts",
+    "lint": "echo \"no lint configured\""
+  },
+  "dependencies": {
+    "@playwright/test": "^1.49.0",
+    "@supabase/supabase-js": "^2.49.0",
+    "cheerio": "^1.0.0-rc.12",
+    "cross-fetch": "^4.0.0",
+    "p-limit": "^4.0.0",
+    "p-retry": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
