@@ -6,6 +6,7 @@
   "scripts": {
     "scrape-all": "tsx src/scrape-all.ts",
     "bootstrap": "tsx src/bootstrap.ts",
+        "sync-ff": "tsx src/sync-facultyfinder.ts",
     "lint": "echo \"no lint configured\""
   },
   "dependencies": {
