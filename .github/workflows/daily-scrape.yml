@@ -20,9 +20,9 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-  run: npm install
+      run: npm install
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps
+            run: npx playwright install --with-deps
 
     - name: Sync FacultyFinder colleges
       env:
@@ -30,9 +30,9 @@ jobs:
         SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
         FACULTYFINDER_URL: ${{ secrets.FACULTYFINDER_URL }}
         FACULTYFINDER_KEY: ${{ secrets.FACULTYFINDER_KEY }}
-      run: npm run sync-ff
+          run: npm run sync-ff
       - name: Run scraper
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
-        run: npm run scrape-all
+            run: npm run scrape-all
