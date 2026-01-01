@@ -129,4 +129,6 @@ Edit `src/bootstrap.ts` and add rows to the `seed` array with:
 - Careers/news URL
 - CSS selectors (title, date, link)
 
+
+# Workflow YAML syntax fixed - Jan 1, 2026
 Then run `npm run bootstrap` to load into Supabase.
