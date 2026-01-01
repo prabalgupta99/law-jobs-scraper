@@ -1,38 +1,32 @@
 name: Daily Law Jobs Scraper
-
 on:
   schedule:
     - cron: '0 4 * * *'
   workflow_dispatch:
-
 jobs:
-    scrape:
-      runs-on: ubuntu-latest
-      timeout-minutes: 60
-
-      steps:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-
       - name: Install dependencies
-      run: npm install
+        run: npm install
       - name: Install Playwright browsers
-            run: npx playwright install --with-deps
-
-    - name: Sync FacultyFinder colleges
-      env:
-        SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-        SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
-        FACULTYFINDER_URL: ${{ secrets.FACULTYFINDER_URL }}
-        FACULTYFINDER_KEY: ${{ secrets.FACULTYFINDER_KEY }}
-          run: npm run sync-ff
+        run: npx playwright install --with-deps
+      - name: Sync FacultyFinder colleges
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          FACULTYFINDER_URL: ${{ secrets.FACULTYFINDER_URL }}
+          FACULTYFINDER_KEY: ${{ secrets.FACULTYFINDER_KEY }}
+        run: npm run sync-ff
       - name: Run scraper
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
-            run: npm run scrape-all
+        run: npm run scrape-all
