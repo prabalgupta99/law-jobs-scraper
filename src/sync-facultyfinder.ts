@@ -14,7 +14,7 @@ async function syncCollegesFromFacultyFinder() {
   try {
     // Fetch all colleges from FacultyFinder
     const { data: facultyFinderColleges, error: fetchError } = await facultyFinderDb
-      .from('colleges')
+      .from('Colleges')
       .select('*')
       .eq('active', true);
 
